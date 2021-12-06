@@ -20,11 +20,4 @@ public class StatisticJsonData {
     public static JSONArray stateJsonArray = null;
     public static JSONArray countyJsonArray = null;
     public static JSONArray providerLocation = null;
-//    static {
-//        try {
-//            providerLocation = new JSONArray();
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }

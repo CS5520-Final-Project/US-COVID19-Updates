@@ -1,19 +1,16 @@
-package com.cs5520.covid19;
+package com.example.practicecovidapp;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-/**
- * This Interface is required to use Retrofit2 to fetch data from web
- */
-
 public interface ApiInterface {
+//    String BASE_URL = "https://corona.lmao.ninja/v2/";
     String BASE_URL = "https://disease.sh/v3/covid-19/";
-
-    //Get array of all countries
+    //disease.sh/v3/covid-19/
+//    @Headers("Content-Type: application/json")
     @GET("countries")
+    //Get array of all countries
     Call<List<ModelClass>> getCountryData();
-
 }

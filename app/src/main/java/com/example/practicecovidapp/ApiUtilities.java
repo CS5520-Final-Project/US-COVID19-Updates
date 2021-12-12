@@ -1,4 +1,4 @@
-package com.cs5520.covid19;
+package com.example.practicecovidapp;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

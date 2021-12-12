@@ -1,4 +1,4 @@
-package com.cs5520.covid19;
+package com.example.practicecovidapp;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

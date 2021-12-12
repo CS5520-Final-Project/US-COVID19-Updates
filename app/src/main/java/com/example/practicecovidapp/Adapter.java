@@ -1,4 +1,4 @@
-package com.cs5520.covid19;
+package com.example.practicecovidapp;
 
 import android.content.Context;
 import android.view.LayoutInflater;

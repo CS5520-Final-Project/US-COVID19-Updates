@@ -1,22 +1,20 @@
-package com.cs5520.covid19;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+package com.example.practicecovidapp;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.hbb20.CountryCodePicker;
 
@@ -31,8 +29,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class StatisticDisplay extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    Button btn_back;
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
     CountryCodePicker countryCodePicker;
     TextView todayCases, cases, active, recovered, todayRecovered, deaths, todayDeaths;
 
@@ -51,22 +49,16 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_statistic_display);
-
-        btn_back = (Button) findViewById(R.id.btn_back);
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openHomePage();
-            }
-        });
+        setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
         countryCodePicker= findViewById(R.id.ccp);
+//        mTodayActive = findViewById(R.id.todayactive);
         active = findViewById(R.id.totalactive);
         deaths = findViewById(R.id.totaldeaths);
         todayDeaths = findViewById(R.id.todaydeaths);
-        recovered = findViewById(R.id.totalrecovered);
-        todayRecovered = findViewById(R.id.todayrecovered);
+        recovered = findViewById(R.id.todayrecovered);
+        todayRecovered = findViewById(R.id.totalrecovered);
         cases = findViewById(R.id.totalcases);
         todayCases = findViewById(R.id.todaytotal);
 
@@ -94,8 +86,8 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
 
             @Override
             public void onFailure(@NonNull Call<List<ModelClass>> call, Throwable t) {
-                Log.e("StatisticDisplay", "Something wrong at Spinner " + t.getMessage());
-                Toast.makeText(StatisticDisplay.this, "Something wrong when at spinner", Toast.LENGTH_SHORT).show();
+                Log.e("MainActivity", "Something wrong at Spinner " + t.getMessage());
+                Toast.makeText(MainActivity.this, "Something wrong when at spinner", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -119,11 +111,7 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
         });
 
         fetchData();
-    }
 
-    public void openHomePage() {
-        Intent intent = new Intent(this, HomePage.class);
-        startActivity(intent);
     }
 
     /**
@@ -161,7 +149,7 @@ public class StatisticDisplay extends AppCompatActivity implements AdapterView.O
             @Override
             public void onFailure(@NonNull Call<List<ModelClass>> call, @NonNull Throwable t) {
                 Log.e("MainActivity", "Something wrong at FetchData" + t.getMessage());
-                Toast.makeText(StatisticDisplay.this, "Somthing wrong when at fetchData", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Somthing wrong when at fetchData", Toast.LENGTH_SHORT).show();
             }
         });
 
